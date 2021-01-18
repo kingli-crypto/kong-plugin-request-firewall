@@ -15,8 +15,8 @@ jobs:
             --from-file=kong/plugins/request-firewall \
             --dry-run=client \
             --output=yaml > $CI_REPOSITORY_NAME.yaml
-      - uses: actions/upload-artifact@v2
+      - uses: eine/tip@master
         with:
-          name: kubernetes-configmap-manifest
-          path: |
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: |
             *.yaml
